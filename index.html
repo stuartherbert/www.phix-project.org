@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Phix - A Tool For Creating And Maintaining PHP Components</title>
+    <meta name="author" content="Stuart Herbert"/>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- css -->
+    <link href="css/bootstrap-1.1.1.min.css" rel="stylesheet"/>
+    <link href="css/doc.css" rel="stylesheet"/>
+
+    <!-- javascript -->
+    <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <script src="js/application.js"></script>
+  </head>
+
+  <body>
+    <!-- topbar -->
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <h3><a href="#">Phix</a></h3>
+          <ul>
+            <li class="active"><a href="#masthead">Overview</a></li>
+            <li><a href="#about">Why Components</a></li>
+            <li><a href="#install">Installation</a></li>
+            <li><a href="#getstarted">Getting Started</a></li>
+            <li><a href="#extend">Extend</a></li>
+            <li><a href="#contribute">Contribute</a></li>
+            <li><a href="#license">License</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- main spotlight -->
+    <div id="masthead">
+      <div class="inner">
+      <div class="container">
+        <div class="row">
+          <div class="span5 columns">
+            <img src="logos/phix_b+w_inv.png" alt="Phix - Components For PHP"/>
+          </div>
+          <div class="span11 columns">
+            <h1>Phix</h1>
+            <p class="subtitle">Create And Maintain<br/>Components For PHP</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span16 columns">
+            <p class="lead">Phix is an open-source, framework-agnostic tool that makes it extremely easy to create and maintain your own PEAR-installer compatible components for your PHP applications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="container">
+
+    <!-- about -->
+    <section id="about">
+    <div class="page-header">
+      <h1>Why PHP Components</h1>
+    </div>
+    <div class="row">
+      <div class="span4 columns">
+        <h2>Free Your Code!</h2>
+      </div>
+      <div class="span12 columns">
+        <p>Something here.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span4 columns">
+        <h2>Share Your Components</h2>
+      </div>
+      <div class="span12 columns">
+        <p>Something here</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span4 columns">
+        <h2>Want To Know More?</h2>
+      </div>
+      <div class="span12 columns">
+        <h3>Watch The Video That Started It All</h3>
+        <p>Watch Stuart Herbert talk at PHPUK 2011 about the problems</p>
+        <iframe src="http://player.vimeo.com/video/21145583?title=0&amp;byline=0&amp;portrait=0" width="400" height="225" frameborder="0"></iframe><p><a href="http://vimeo.com/21145583">Beyond Frameworks - Stuart Herbert</a> from <a href="http://vimeo.com/user6188686">PHP UK Conference</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+      </div>
+    </div>
+    </section>
+
+    <!-- installation -->
+    <section id="install">
+    <div class="page-header">
+      <h1>How To Install Phix</h1>
+    </div>
+    <div class="row">
+      <div class="span4 columns">
+        <h2>Via PEAR</h2>
+        <p>The best way to install Phix is via the standard PHP <code>pear</code> command.</p>
+      </div>
+      <div class="span12 columns">
+        <h3>Installing On Debian Or Ubuntu</h3>
+        <p>Install <code>phix</code> on either <a href="http://www.debian.org">Debian</a> or <a href="http://www.ubuntu.com">Ubuntu</a> using the PEAR installer:</p>
+        <pre>
+# binary modules that may be missing
+sudo apt-get install php5-xdebug
+sudo apt-get install php5-imagick
+sudo apt-get install php5-xsl
+
+# make sure we have the latest PEAR installer
+sudo pear upgrade pear/pear
+
+# install phix
+sudo pear channel-discover pear.phix-project.org
+sudo pear -D auto_discover=1 install -Ba phix/phix4componentdev
+</pre>
+        <h3>Installing On Fedora, CentOS, or RedHat Enterprise Linux</h3>
+        <p>Install <code>phix</code> on <a href="http://fedoraproject.org">Fedora</a>, <a href="http://www.centos.org">CentOS</a>, <a href="http://www.redhat.com">RedHat Enterprise Linux</a> or other RPM-based Linux distros using the PEAR installer:</p>
+        <pre>
+# binary modules that might be missing
+sudo yum install php-process
+sudo yum install php-pecl-imagick
+sudo yum install php-pecl-xdebug
+
+# make sure we have the latest PEAR installer
+sudo pear upgrade pear/pear
+
+# install phix
+sudo pear channel-discover pear.phix-project.org
+sudo pear -D auto_discover=1 install -Ba phix/phix4componentdev
+</pre>
+        <h3>What Gets Installed</h3>
+        <p>This installs the <code>phix</code> command itself, plus all the tools that <code>phix</code> automatically supports for generating code review information, running unit tests, and generating documentation.</p>
+      </div>
+    </div>
+    </section>
+
+    <!-- gettingstarted -->
+    <section id="gettingstarted">
+    <div class="page-header">
+      <h1>Getting Started With Phix</h1>
+    </div>
+    <div class="row">
+      <div class="span4 columns">
+        <h2>Creating A Component For PHP</h2>
+        <p>Creating and maintaining PEAR-installer-compatible components by hand is tedious and error-prone. <code>phix</code> automates it all for you.</p>
+      </div>
+      <div class="span12 columns">
+        <h3>Creating Your First PHP Library Component</h3>
+        <p>Something here.</p>
+        <h3>Learning More</h3>
+        <p>When you're ready, you'll find all the documentation about <a href="http://blog.stuartherbert.com/php/php-components">PHP Components</a> over on Stuart's blog.</p>
+      </div>
+    </div>
+    </section>
+
+    <!-- extend -->
+    <section id="extend">
+    <div class="page-header">
+      <h1>Create Your Own Extensions For Phix</h1>
+    </div>
+    <div class="row">
+      <div class="span4 columns">
+        <h2>Phix Was Built To Be Extensible</h2>
+        <p>Something here.</p>
+      </div>
+      <div class="span12 columns">
+        <h3>Something here</h3>
+        <p>Something here</p>
+      </div>
+    </section>
+
+    <!-- contribute -->
+    <section id="contribute">
+    <div class="page-header">
+      <h1>Contribute To Phix</h1>
+    </div>
+    <div class="row">
+      <div class="span4 columns">
+        <h2>Something here</h2>
+        <p>All of the source code for Phix is available on GitHub.</p>
+      </div>
+      <div class="span12 columns">
+        <h3>GitHub</h3>
+        <p>Something here.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span4 columns">
+        <h2>Something here</h2>
+        <p>Our documentation and this website is available on GitHub too.</p>
+      </div>
+      <div class="span12 columns">
+        <h3>Something here.</h3>
+        <p>Something here.</p>
+      </div>
+    </div>
+    </section>
+
+    <!-- license -->
+    <section id="license">
+      <div class="page-header">
+        <h1>Software And Documentation License</h1>
+      </div>
+      <div class="row">
+        <div class="span4 columns">
+          <h2>Software License</h2>
+          <p>Phix is open-source software, licensed under the New BSD license.</p>
+        </div>
+        <div class="span12 columns">
+          <h3>New BSD License</h3>
+          <p>
+          Copyright (c) 2011, Stuart Herbert<br/>
+          Copyright (c) 2010, Gradwell dot com Ltd<br/>
+          All rights reserved.
+          </p>
+          <p>Phix includes the following third-party contributions:</p>
+          <ul>
+            <li> ClassFinder, copyright (c) 2010 Martin Wernståhl. Released under the BSD license.</li>
+          </ul>
+          <p>
+          Redistribution and use in source and binary forms, with or without
+          modification, are permitted provided that the following conditions are met:
+          </p>
+          <ul>
+            <li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+            <li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+            <li>Neither the names of the copyright holders nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+          </ul>
+
+          <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span4 columns">
+          <h2>Documentation License</h2>
+          <p>The documentation on our website is licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/uk/" target="_top">Creative Commons Attribution-NonCommercial-ShareAlike 2.0 UK: England &amp; Wales</a>.</p>
+        </div>
+        <div class="span12 columns">
+          <h3>Creative Commons License</h3>
+          <p>You are free:</p>
+          <ul>
+            <li>to copy, distribute, display, and perform the work</li>
+            <li>to make derivative works</li>
+          </ul>
+          <p>under the following conditions:</p>
+          <ul>
+            <li><em>Attribution</em> - You must give the original author credit.</li>
+            <li><em>Non-Commercial</em> - You may not use this work for commercial purposes.</li>
+            <li><em>Share Alike</em> - If you alter, transform, or build upon this work, you may distribute the resulting work only under a license identical to this one.</li>
+          </ul>
+          <p>With the understanding that:</p>
+          <ul>
+            <li><em>Waiver</em> - Any of the above conditions can be waived if you get permission from the copyright holder.</li>
+            <li><em>Public Domain</em> - Where the work or any of its elements is in the public domain under applicable law, that status is in no way affected by the license.</li>
+            <li><em>Other Rights</em> - In no way are any of the following rights affected by the license:</li>
+            <ul>
+              <li>Your fair dealing or fair use rights, or other applicable copyright exceptions and limitations;</li>
+              <li>The author's moral rights;</li>
+              <li>Rights other persons may have either in the work itself or in how the work is used, such as publicity or privacy rights.</li>
+            </ul>
+            <li><em>Notice</em> - For any reuse or distribution, you must make clear to others the license terms of this work.</li>
+          </ul>
+        </div>
+      </div>
+      </section>
+
+    </div>
+
+    <!-- footer -->
+    <div id="footer">
+      <div class="inner">
+        <div class="container">
+          <p class="right">
+          <a href="#">Back to top</a>
+          </p>
+          <p>
+          Crafted with dedication by <a href="http://www.stuartherbert.com">Stuart Herbert</a> (<a href="http://twitter.com/stuherbert">@stuherbert</a>) and contributors.</p>
+          <p class="last">Logo by <a href="http://www.magmadigital.co.uk">Magma Digital</a> (<a href="http://twitter.com/magma_digital">@magma_digital</a>).
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!-- vim: set tabstop=2 shiftwidth=2 expandtab: -->
