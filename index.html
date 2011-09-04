@@ -102,6 +102,17 @@
     </div>
     <div class="row">
       <div class="span4 columns">
+        <h2>Phix Is Written For PHP 5.3</h2>
+        <p>Phix takes advantage of new features in PHP 5.3 to keep code quality up, and code size down.</p>
+      </div>
+      <div class="span12 columns">
+        <h3>Technical Requirements</h3>
+        <p>To install <code>phix</code>, you will need an operating system with PHP 5.3 or later installed.</p>
+        <p><code>phix</code> is a command-line (CLI) tool, which you run from a <strong>Terminal</strong> or <strong>CMD</strong> window. You don't need a web browser or a web server to use <code>phix</code>.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span4 columns">
         <h2>Via PEAR</h2>
         <p>The best way to install Phix is via the standard PHP <code>pear</code> command.</p>
       </div>
@@ -144,6 +155,20 @@ sudo pear upgrade pear/pear
 sudo pear channel-discover pear.phix-project.org
 sudo pear -D auto_discover=1 install -Ba phix/phix4componentdev
 </pre>
+        <h3>Installing On Other Linux Distros</h3>
+        <p>Because <code>phix</code> uses the standard PEAR installer, it should be very easy to install <code>phix</code> on other Linux distros. The only difficulty might be making sure that you have the right PHP extensions installed and enabled.</p>
+        <p>The extensions you need are:</p>
+        <ul>
+          <li><a href="http://xdebug.org">XDebug</a>, used by <a href="http://www.phpunit.de">PHPUnit</a> for generating code coverage metrics,</li>
+          <li><a href="http://www.php.net/imagick">ImageMagick extension</a>, used by several of the QA tools for drawing graphs and tables of metrics,</li>
+          <li><a href="http://www.php.net/ncurses">NCurses extension</a>, used by <code>phix</code> to cope when you resize your terminal window,</li>
+          <li><a href="http://www.php.net/posix">POSIX extension</a>, used by <code>phix</code> to work out when you're piping the <code>phix</code>'s output into another process (so we can turn the colour off),</li>
+          <li><a href="http://www.php.net/xsl">XSL extension</a>, used for generating documentation (this is a work in progress)</li>
+        </ul>
+        <h3>Installing on OSX</h3>
+        <p><code>phix</code> should work on OSX Snow Leopard or Lion, but I haven't tried it myself yet. Please let me know how you get on with this.</p>
+        <h3>Installing On Windows</h3>
+        <p>I have not tried installing <code>phix</code> on Windows myself yet.  I would expect the hard part is getting PHP 5.3 + the required PHP extensions installed.  Please let me know how you get on with this.</p>
         <h3>What Gets Installed</h3>
         <p>This installs the <code>phix</code> command itself, plus all the QA tools that <code>phix</code> automatically supports for generating code review information, running unit tests, and generating documentation.</p>
       </div>
@@ -389,6 +414,7 @@ COMMANDS
         <div class="span12 columns">
           <h3>Creative Commons License</h3>
           <p>The documentation for <code>phix</code> is licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/uk/" target="_top">Creative Commons Attribution-NonCommercial-ShareAlike 2.0 UK: England &amp; Wales</a>.</p>
+          <p>Copyright (c) 2011, Stuart Herbert.<br/>All rights reserved.</p>
           <p>You are free:</p>
           <ul>
             <li>to copy, distribute, display, and perform the work</li>
