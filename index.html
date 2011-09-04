@@ -109,17 +109,25 @@
         <h3>Installing On Debian Or Ubuntu</h3>
         <p>Install <code>phix</code> on either <a href="http://www.debian.org">Debian</a> or <a href="http://www.ubuntu.com">Ubuntu</a> using the PEAR installer:</p>
         <pre>
+# become root
+sudo su -
+
 # binary modules that may be missing
-sudo apt-get install php5-xdebug
-sudo apt-get install php5-imagick
-sudo apt-get install php5-xsl
+apt-get install php5-xdebug
+apt-get install php5-imagick
+apt-get install php5-xsl
 
 # make sure we have the latest PEAR installer
-sudo pear upgrade pear/pear
+pear upgrade pear/pear
+
+# build the ncurses PHP extension
+apt-get install libncursesw5-dev
+pecl install ncurses
+echo "extension=ncurses.so" > /etc/php5/cli/conf.d/ncurses.ini
 
 # install phix
-sudo pear channel-discover pear.phix-project.org
-sudo pear -D auto_discover=1 install -Ba phix/phix4componentdev
+pear channel-discover pear.phix-project.org
+pear -D auto_discover=1 install -Ba phix/phix4componentdev
 </pre>
         <h3>Installing On Fedora, CentOS, or RedHat Enterprise Linux</h3>
         <p>Install <code>phix</code> on <a href="http://fedoraproject.org">Fedora</a>, <a href="http://www.centos.org">CentOS</a>, <a href="http://www.redhat.com">RedHat Enterprise Linux</a> or other RPM-based Linux distros using the PEAR installer:</p>
