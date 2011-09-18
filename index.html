@@ -11,7 +11,8 @@
     <![endif]-->
 
     <!-- css -->
-    <link href="assets/css/bootstrap-1.1.1.min.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap-1.3.0-no-grid.min.css" rel="stylesheet"/>
+    <link href="assets/css/1140.css" rel="stylesheet"/>
     <link href="assets/css/doc.css" rel="stylesheet"/>
 
     <!-- javascript -->
@@ -24,36 +25,43 @@
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <h3><a href="#">Phix</a></h3>
-          <ul>
-            <li class="active"><a href="#masthead">Overview</a></li>
-            <li><a href="#about">Why Components</a></li>
-            <li><a href="#install">Installation</a></li>
-            <li><a href="#getstarted">Getting Started</a></li>
-            <li><a href="#extend">Extend</a></li>
-            <li><a href="#contribute">Contribute</a></li>
-            <li><a href="#license">License</a></li>
-          </ul>
+          <div class="row">
+            <div class="twelvecol last">
+              <h3><a href="#">Phix</a></h3>
+              <ul>
+                <li class="active"><a href="#masthead">Overview</a></li>
+                <li><a href="#about">Why Components</a></li>
+                <li><a href="#install">Installation</a></li>
+                <li><a href="#getstarted">Getting Started</a></li>
+                <li><a href="#extend">Extend</a></li>
+                <li><a href="#contribute">Contribute</a></li>
+                <li><a href="#license">License</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- GitHub ribbon -->
+    <a href="http://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub"></a>
 
     <!-- main spotlight -->
     <div id="masthead">
       <div class="inner">
       <div class="container">
         <div class="row">
-          <div class="span5 columns">
+          <div class="threecol">
             <img src="assets/logos/phix_b+w_inv.png" alt="Phix - Components For PHP"/>
           </div>
-          <div class="span11 columns">
+          <div class="fourcol">
             <h1>Phix</h1>
             <p class="subtitle">Create And Maintain<br/>Components For PHP</p>
           </div>
-        </div>
-        <div class="row">
-          <div class="span16 columns">
-            <p class="lead">Phix is an open-source, framework-agnostic tool that makes it extremely easy to create and maintain your own PEAR-installer compatible components for your PHP applications.</p>
+          <div class="fivecol last">
+            <!--p class="lead">Phix is an open-source, framework-agnostic tool that makes it extremely easy to create and maintain your own PEAR-installer compatible components for your PHP applications.</p-->
+            <p class="lead first">Phix makes it extremely easy to create and maintain your own PEAR-installer compatible components for your PHP applications.</p>
+            <p class="lead">Installation takes just seconds, and best of all it's both open-source and framework-agnostic!</p>
           </div>
         </div>
       </div>
@@ -64,30 +72,32 @@
 
     <!-- about -->
     <section id="about">
-    <div class="page-header">
-      <h1>Why PHP Components</h1>
+    <div class="row">
+      <div class="twelvecol last page-header">
+        <h1>Why PHP Components</h1>
+      </div>
     </div>
     <div class="row">
-      <div class="span4 columns">
+      <div class="threecol">
         <h2>Free Your Code!</h2>
       </div>
-      <div class="span12 columns">
+      <div class="ninecol last">
         <p>Something here.</p>
       </div>
     </div>
     <div class="row">
-      <div class="span4 columns">
+      <div class="threecol">
         <h2>Share Your Components</h2>
       </div>
-      <div class="span12 columns">
+      <div class="ninecol last">
         <p>Something here</p>
       </div>
     </div>
     <div class="row">
-      <div class="span4 columns">
+      <div class="threecol">
         <h2>Want To Know More?</h2>
       </div>
-      <div class="span12 columns">
+      <div class="ninecol last">
         <h3>Watch The Video That Started It All</h3>
         <p>Watch Stuart Herbert talk at PHPUK 2011 about the problems</p>
         <iframe src="http://player.vimeo.com/video/21145583?title=0&amp;byline=0&amp;portrait=0" width="400" height="225" frameborder="0"></iframe><p><a href="http://vimeo.com/21145583">Beyond Frameworks - Stuart Herbert</a> from <a href="http://vimeo.com/user6188686">PHP UK Conference</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
@@ -97,26 +107,30 @@
 
     <!-- installation -->
     <section id="install">
-    <div class="page-header">
-      <h1>How To Install Phix</h1>
+    <div class="row">
+      <div class="twelvecol last">
+        <div class="page-header">
+          <h1>How To Install Phix</h1>
+        </div>
+      </div>
     </div>
     <div class="row">
-      <div class="span4 columns">
+      <div class="threecol">
         <h2>Phix Is Written For PHP 5.3</h2>
         <p>Phix takes advantage of new features in PHP 5.3 to keep code quality up, and code size down.</p>
       </div>
-      <div class="span12 columns">
+      <div class="ninecol last">
         <h3>Technical Requirements</h3>
         <p>To install <code>phix</code>, you will need an operating system with PHP 5.3 or later installed.</p>
         <p><code>phix</code> is a command-line (CLI) tool, which you run from a <strong>Terminal</strong> or <strong>CMD</strong> window. You don't need a web browser or a web server to use <code>phix</code>.</p>
       </div>
     </div>
     <div class="row">
-      <div class="span4 columns">
+      <div class="threecol">
         <h2>Via PEAR</h2>
         <p>The best way to install Phix is via the standard PHP <code>pear</code> command.</p>
       </div>
-      <div class="span12 columns">
+      <div class="ninecol last">
         <h3>Installing On Debian Or Ubuntu</h3>
         <p>Install <code>phix</code> on either <a href="http://www.debian.org">Debian</a> or <a href="http://www.ubuntu.com">Ubuntu</a> using the PEAR installer:</p>
         <pre>
@@ -177,42 +191,50 @@ sudo pear -D auto_discover=1 install -Ba phix/phix4componentdev
 
     <!-- gettingstarted -->
     <section id="getstarted">
-    <div class="page-header">
-      <h1>Getting Started With Phix</h1>
-    </div>
-    <div class="row">
-      <div class="span4 columns">
-        <h2>Creating A Component For PHP</h2>
-        <p>Creating and maintaining PEAR-installer-compatible components by hand is tedious and error-prone. <code>phix</code> automates it all for you.</p>
+      <div class="row">
+        <div class="twelvecol last">
+          <div class="page-header">
+            <h1>Getting Started With Phix Today</h1>
+          </div>
+        </div>
       </div>
-      <div class="span12 columns">
-        <h3>Creating Your First PHP Library Component</h3>
-        <p>Something here.</p>
-        <h3>Learning More</h3>
-        <p>When you're ready, you'll find all the documentation about <a href="http://blog.stuartherbert.com/php/php-components">PHP Components</a> over on Stuart's blog.</p>
+      <div class="row">
+        <div class="threecol">
+          <h2>Creating A Component For PHP</h2>
+          <p>Creating and maintaining PEAR-installer-compatible components by hand is tedious and error-prone. <code>phix</code> automates it all for you.</p>
+        </div>
+        <div class="ninecol last">
+          <h3>Creating Your First PHP Library Component</h3>
+          <p>Something here.</p>
+          <h3>Learning More</h3>
+          <p>When you're ready, you'll find all the documentation about <a href="http://blog.stuartherbert.com/php/php-components">PHP Components</a> over on Stuart's blog.</p>
+        </div>
       </div>
-    </div>
     </section>
 
     <!-- extend -->
     <section id="extend">
-    <div class="page-header">
-      <h1>Create Your Own Extensions For Phix</h1>
-    </div>
-    <div class="row">
-      <div class="span4 columns">
-        <h2>Phix Was Built To Be Extensible</h2>
-        <p>At the heart of Phix is a generic CLI tool, which you can add your own commands to.</p>
+      <div class="row">
+        <div class="twelvecol last">
+          <div class="page-header">
+            <h1>Create Your Own Extensions For Phix</h1>
+          </div>
+        </div>
       </div>
-      <div class="span12 columns">
-        <h3>Looking At The Structure Of Phix</h3>
-        <p>When you install <code>phix/phix4componentdev</code>, this is a meta-package that asks the PEAR installer to install:</p>
-        <ul>
-          <li><code>phix</code>, which is a generic command-line tool, and</li>
-          <li><code>ComponentManager</code>, which adds a set of commands to <code>phix</code> for creating and maintaining PHP components</li>
-        </ul>
+      <div class="row">
+        <div class="threecol">
+          <h2>Phix Was Built To Be Extensible</h2>
+          <p>At the heart of Phix is a generic CLI tool, which you can add your own commands to.</p>
+        </div>
+        <div class="ninecol last">
+          <h3>Looking At The Structure Of Phix</h3>
+          <p>When you install <code>phix/phix4componentdev</code>, this is a meta-package that asks the PEAR installer to install:</p>
+          <ul>
+            <li><code>phix</code>, which is a generic command-line tool, and</li>
+            <li><code>ComponentManager</code>, which adds a set of commands to <code>phix</code> for creating and maintaining PHP components</li>
+          </ul>
 
-        <!--p>Here are all of the components as a diagram. The components are split into two groups:</p>
+          <!--p>Here are all of the components as a diagram. The components are split into two groups:</p>
         <ul>
           <li>the top group shows the components that are specific for PHP component development, and</li>
           <li>the bottom group shows the components that provide the generic command-line tool <code>phix</code>.</li>
@@ -255,12 +277,12 @@ COMMANDS
 
     See /usr/bin/phix help <command> for detailed help on <command>
         </pre-->
-        <p>Each of the <code>phix</code> commands is implemented in its own PHP class:</p>
-        <ul>
-          <li>that lives inside the <code>PhixCommands</code> namespace,</li>
-          <li>that implements the <code>Phix_Project\PhixExtensions\CommandInterface</code>, and</li>
-          <li>that extends <code>Phix_Project\PhixExtensions\CommandBase</code>.</li>
-        </ul>
+          <p>Each of the <code>phix</code> commands is implemented in its own PHP class:</p>
+          <ul>
+            <li>that lives inside the <code>PhixCommands</code> namespace,</li>
+            <li>that implements the <code>Phix_Project\PhixExtensions\CommandInterface</code>, and</li>
+            <li>that extends <code>Phix_Project\PhixExtensions\CommandBase</code>.</li>
+          </ul>
         <!--p>The <code>PhixCommands</code> namespace can be nested inside other namespaces, to keep the code for your commands separate from other people's code.</p>
         <p>When you run <code>phix</code>, the first thing <code>phix</code> does is search PHP's <code>include_path</code> for classes inside the <code>PhixCommands</code> namespace.</p-->
         <p><code>phix</code> was built to be extensible.  <code>phix4componentdev</code> is just an extension to <code>phix</code> that provides extra commands for creating and maintaining PHP components. It is very easy to add your own commands for <code>phix</code>.</p>
@@ -269,120 +291,128 @@ COMMANDS
 
     <!-- contribute -->
     <section id="contribute">
-    <div class="page-header">
-      <h1>Contribute To Phix</h1>
-    </div>
-    <div class="row">
-      <div class="span4 columns">
-        <h2>Phix Is For The Community</h2>
-        <p>All of the source code for Phix is available on GitHub.</p>
-      </div>
-      <div class="span12 columns">
-        <h3>Checking The Code Out From GitHub</h3>
-        <p>We use <a href="http://github.com">GitHub</a> to publish all of our source code.  <code>phix</code> itself is made from a collection of PHP components:</p>
-        <h4>Phix And Generic Components</h4>
-        <table class="zebra-striped">
-          <thead>
-            <tr>
-              <th>Component</th>
-              <th>Purpose</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/Autoloader">Autoloader</a></td>
-              <td>PSR0-compliant autoloader</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/CommandLineLib">CommandLineLib</a></td>
-              <td>Parser for command-line switches and arguments</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/ConsoleDisplayLib">ConsoleDisplayLib</a></td>
-              <td>Support for writing (possibly coloured) output to a CLI terminal.</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/ExceptionsLib">ExceptionsLib</a></td>
-              <td>Re-usable set of exceptions, and support for turning legacy PHP errors into exceptions.</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/phix">phix</a></td>
-              <td>The <code>phix</code> tool itself.</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/ValidationLib">ValidationLib</a></td>
-              <td>A set of re-usable validation tests, inspired by Zend Framework's support for validations.</td>
-            </tr>
-          </tbody>
-        </table>
-        <h4>Components For Creating And Maintaining PHP Components</h4>
-        <table class="zebra-striped">
-          <thead>
-            <tr>
-              <th>Component</th>
-              <th>Purpose</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/ComponentManager">ComponentManager</a></td>
-              <td>Meta-package for installing the commands for each type of PHP component.</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/ComponentManagerPhpLibrary">ComponentManagerPhpLibrary</a></td>
-              <td>The <code>phix php-library:*</code> commands.</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/ComponentManagerShared">ComponentManagerShared</a></td>
-              <td>Code shared by all of the <code>ComponentManagerPhp*</code> components.</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/phix4componentdev">phix4componentdev</a></td>
-              <td>Meta-package that installs all the other components, plus all the third-party tools to help with QA, code reviews, and publishing your own PEAR channel.</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/TasksLib">TasksLib</a></td>
-              <td>A set of reusable actions (such as creating directories, copying files, etc etc) with standardised error handling.</td>
-            </tr>
-          </tbody>
-        </table>
-        <h4>Documentation et al</h4>
-        <table class="zebra-striped">
-          <thead>
-            <tr>
-              <th>Component</th>
-              <th>Purpose</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/pear.phix-project.org">pear.phix-project.org</a></td>
-              <td>The PEAR channel hosted on pear.phix-project.org.</td>
-            </tr>
-            <tr>
-              <td><a href="https://github.com/stuartherbert/www.phix-project.org">www.phix-project.org</a></td>
-              <td>This website.</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>
-        <h3>Contributing To Phix</h3>
-        <p>Contributions to <code>phix</code> are very welcome - just fork the code on <a href="https://github.com">GitHub</a>, make your changes in their own branch, and send a <a href="http://help.github.com/send-pull-requests/">pull request</a> to us.</p>
-      </div>
-    </div>
-    </section>
-
-    <!-- license -->
-    <section id="license">
-      <div class="page-header">
-        <h1>Software And Documentation License</h1>
+      <div class="row">
+        <div class="twelvecol last">
+          <div class="page-header">
+            <h1>Contribute To Phix</h1>
+          </div>
+        </div>
       </div>
       <div class="row">
-        <div class="span4 columns">
+        <div class="threecol">
+          <h2>Phix Is For The Community</h2>
+          <p>All of the source code for Phix is available on GitHub.</p>
+        </div>
+        <div class="ninecol last">
+          <h3>Checking The Code Out From GitHub</h3>
+          <p>We use <a href="http://github.com">GitHub</a> to publish all of our source code.  <code>phix</code> itself is made from a collection of PHP components:</p>
+          <h4>Phix And Generic Components</h4>
+          <table class="zebra-striped">
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/Autoloader">Autoloader</a></td>
+                <td>PSR0-compliant autoloader</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/CommandLineLib">CommandLineLib</a></td>
+                <td>Parser for command-line switches and arguments</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/ConsoleDisplayLib">ConsoleDisplayLib</a></td>
+                <td>Support for writing (possibly coloured) output to a CLI terminal.</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/ExceptionsLib">ExceptionsLib</a></td>
+                <td>Re-usable set of exceptions, and support for turning legacy PHP errors into exceptions.</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/phix">phix</a></td>
+                <td>The <code>phix</code> tool itself.</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/ValidationLib">ValidationLib</a></td>
+                <td>A set of re-usable validation tests, inspired by Zend Framework's support for validations.</td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Components For Creating And Maintaining PHP Components</h4>
+          <table class="zebra-striped">
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/ComponentManager">ComponentManager</a></td>
+                <td>Meta-package for installing the commands for each type of PHP component.</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/ComponentManagerPhpLibrary">ComponentManagerPhpLibrary</a></td>
+                <td>The <code>phix php-library:*</code> commands.</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/ComponentManagerShared">ComponentManagerShared</a></td>
+                <td>Code shared by all of the <code>ComponentManagerPhp*</code> components.</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/phix4componentdev">phix4componentdev</a></td>
+                <td>Meta-package that installs all the other components, plus all the third-party tools to help with QA, code reviews, and publishing your own PEAR channel.</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/TasksLib">TasksLib</a></td>
+                <td>A set of reusable actions (such as creating directories, copying files, etc etc) with standardised error handling.</td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Documentation et al</h4>
+          <table class="zebra-striped">
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/pear.phix-project.org">pear.phix-project.org</a></td>
+                <td>The PEAR channel hosted on pear.phix-project.org.</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/stuartherbert/www.phix-project.org">www.phix-project.org</a></td>
+                <td>This website.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+          <h3>Contributing To Phix</h3>
+          <p>Contributions to <code>phix</code> are very welcome - just fork the code on <a href="https://github.com">GitHub</a>, make your changes in their own branch, and send a <a href="http://help.github.com/send-pull-requests/">pull request</a> to us.</p>
+        </div>
+      </div>
+      </section>
+  
+    <!-- license -->
+    <section id="license">
+      <div class="row">
+        <div class="twelvecol last">
+          <div class="page-header">
+            <h1>Software And Documentation License</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="threecol">
           <h2>Software License</h2>
           <p>Phix is open-source software, licensed under the BSD license.</p>
         </div>
-        <div class="span12 columns">
+        <div class="ninecol last">
           <h3>BSD License</h3>
           <p>
           Copyright (c) 2011, Stuart Herbert<br/>
@@ -407,11 +437,11 @@ COMMANDS
         </div>
       </div>
       <div class="row">
-        <div class="span4 columns">
+        <div class="threecol">
           <h2>Documentation License</h2>
           <p>Phix's documentation is open-source too, licensed under a Creative Commons license.</p>
         </div>
-        <div class="span12 columns">
+        <div class="ninecol last">
           <h3>Creative Commons License</h3>
           <p>The documentation for <code>phix</code> is licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/uk/" target="_top">Creative Commons Attribution-NonCommercial-ShareAlike 2.0 UK: England &amp; Wales</a>.</p>
           <p>Copyright (c) 2011, Stuart Herbert.<br/>All rights reserved.</p>
@@ -448,13 +478,17 @@ COMMANDS
     <div id="footer">
       <div class="inner">
         <div class="container">
-          <p class="right">
-          <a href="#">Back to top</a>
-          </p>
-          <p>
-          Crafted with dedication by <a href="http://www.stuartherbert.com">Stuart Herbert</a> (<a href="http://twitter.com/stuherbert">@stuherbert</a>) and contributors.</p>
-          <p class="last">Logo by <a href="http://www.magmadigital.co.uk">Magma Digital</a> (<a href="http://twitter.com/magma_digital">@magma_digital</a>).
-          </p>
+          <div class="row">
+            <div class="twelvecol last">
+              <p class="right">
+              <a href="#">Back to top</a>
+              </p>
+              <p>
+              Crafted with dedication by <a href="http://www.stuartherbert.com">Stuart Herbert</a> (<a href="http://twitter.com/stuherbert">@stuherbert</a>) and contributors.</p>
+              <p class="last">Logo by <a href="http://www.magmadigital.co.uk">Magma Digital</a> (<a href="http://twitter.com/magma_digital">@magma_digital</a>).
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

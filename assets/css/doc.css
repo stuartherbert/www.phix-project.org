@@ -68,14 +68,14 @@ div.topbar {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 #masthead p {
-  text-align: center;
+  text-align: right;
   margin-bottom: 9px;
 }
 #masthead h1 {
   font-size: 90px;
   line-height: 1;
   text-shadow: 0 1px 2px rgba(0,0,0,.5);
-  text-align: right;
+  text-align: left;
   margin-bottom: 9px;
   margin-top: 0px;
 }
@@ -86,10 +86,13 @@ div.topbar {
   font-size: 20px;
   line-height: 27px;
 }
+#masthead p.first {
+  padding-bottom: 35px;
+}
 #masthead p.subtitle {
   font-size: 34px;
   line-height: 42px;
-  text-align: right;
+  text-align: left;
 }
 
 
