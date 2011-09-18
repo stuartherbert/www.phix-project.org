@@ -120,19 +120,25 @@
         <p>Phix takes advantage of new features in PHP 5.3 to keep code quality up, and code size down.</p>
       </div>
       <div class="ninecol last">
-        <h3>Technical Requirements</h3>
-        <p>To install <code>phix</code>, you will need an operating system with PHP 5.3 or later installed.</p>
-        <p><code>phix</code> is a command-line (CLI) tool, which you run from a <strong>Terminal</strong> or <strong>CMD</strong> window. You don't need a web browser or a web server to use <code>phix</code>.</p>
+        <h3>Minimal Requirements</h3>
+        <p><code>phix</code> is a command-line (CLI) tool, which you run from a <strong>Terminal</strong> or <strong>CMD</strong> window. You don't need a web browser or a web server to use <code>phix</code>. You would normally install <code>phix</code> onto your development desktop, laptop or virtual machine; you wouldn't normally install <code>phix</code> into your production environment.</p>
+        <p>Before you install <code>phix</code>, you will need an operating system with PHP 5.3 or later installed. Our one-line installer will take care of the additional requirements.</p>
+        <p><span class="label notice">Hint</span> Apple OSX Lion users might find <a href="http://akrabat.com/php/setting-up-php-mysql-on-os-x-10-7-lion/">Rob Allen's instructions for setting up PHP on OSX 10.7 Lion</a> very useful.</p>
+        <p>If we don't have a one-line installer for your operating system yet, we also provide full instructions for installing from source.</p>
       </div>
     </div>
     <div class="row">
       <div class="threecol">
-        <h2>Via PEAR</h2>
-        <p>The best way to install Phix is via the standard PHP <code>pear</code> command.</p>
+        <h2>One Line Install</h2>
+        <p>To make sure that your machine has everything that <code>phix</code> relies on, use our one-line install method!</p>
       </div>
       <div class="ninecol last">
         <h3>Installing On Debian Or Ubuntu</h3>
-        <p>Install <code>phix</code> on either <a href="http://www.debian.org">Debian</a> or <a href="http://www.ubuntu.com">Ubuntu</a> using the PEAR installer:</p>
+        <p>Install <code>phix</code> on either <a href="http://www.debian.org">Debian</a> or <a href="http://www.ubuntu.com">Ubuntu</a> using our one-line installer:</p>
+        <pre>
+curl http://phix-project.org/installers/ubuntu-11.04.sh | sudo bash
+</pre>
+        <p><span class="label warning">Be aware</span> you need to <code>sudo</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
         <pre>
 # become root
 sudo su -
@@ -155,36 +161,151 @@ pear channel-discover pear.phix-project.org
 pear -D auto_discover=1 install -Ba phix/phix4componentdev
 </pre>
         <h3>Installing On Fedora, CentOS, or RedHat Enterprise Linux</h3>
-        <p>Install <code>phix</code> on <a href="http://fedoraproject.org">Fedora</a>, <a href="http://www.centos.org">CentOS</a>, <a href="http://www.redhat.com">RedHat Enterprise Linux</a> or other RPM-based Linux distros using the PEAR installer:</p>
+        <p>Install <code>phix</code> on <a href="http://fedoraproject.org">Fedora</a>, <a href="http://www.centos.org">CentOS</a>, <a href="http://www.redhat.com">RedHat Enterprise Linux</a> or other RPM-based Linux distros using our one-line installer:</p>
         <pre>
-# binary modules that might be missing
-sudo yum install php-process
-sudo yum install php-pecl-imagick
-sudo yum install php-pecl-xdebug
-
-# make sure we have the latest PEAR installer
-sudo pear upgrade pear/pear
-
-# install phix
-sudo pear channel-discover pear.phix-project.org
-sudo pear -D auto_discover=1 install -Ba phix/phix4componentdev
+curl http://www.phix-project.org/installers/fedora-15.sh | sudo bash
 </pre>
-        <h3>Installing On Other Linux Distros</h3>
-        <p>Because <code>phix</code> uses the standard PEAR installer, it should be very easy to install <code>phix</code> on other Linux distros. The only difficulty might be making sure that you have the right PHP extensions installed and enabled.</p>
-        <p>The extensions you need are:</p>
-        <ul>
-          <li><a href="http://xdebug.org">XDebug</a>, used by <a href="http://www.phpunit.de">PHPUnit</a> for generating code coverage metrics,</li>
-          <li><a href="http://www.php.net/imagick">ImageMagick extension</a>, used by several of the QA tools for drawing graphs and tables of metrics,</li>
-          <li><a href="http://www.php.net/ncurses">NCurses extension</a>, used by <code>phix</code> to cope when you resize your terminal window,</li>
-          <li><a href="http://www.php.net/posix">POSIX extension</a>, used by <code>phix</code> to work out when you're piping the <code>phix</code>'s output into another process (so we can turn the colour off),</li>
-          <li><a href="http://www.php.net/xsl">XSL extension</a>, used for generating documentation (this is a work in progress)</li>
-        </ul>
-        <h3>Installing on OSX</h3>
-        <p><code>phix</code> should work on OSX Snow Leopard or Lion, but I haven't tried it myself yet. Please let me know how you get on with this.</p>
-        <h3>Installing On Windows</h3>
-        <p>I have not tried installing <code>phix</code> on Windows myself yet.  I would expect the hard part is getting PHP 5.3 + the required PHP extensions installed.  Please let me know how you get on with this.</p>
-        <h3>What Gets Installed</h3>
-        <p>This installs the <code>phix</code> command itself, plus all the QA tools that <code>phix</code> automatically supports for generating code review information, running unit tests, and generating documentation.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="threecol">
+          <h2>Installing From Source</h2>
+          <p>If we don't have a one-line installer for your operating system yet, you can still install phix the old-fashioned way.</p>
+        </div>
+        <div class="ninecol last">
+          <h3>What You Need To Install First</h3>
+          <p>You will need to install the following tools on your operating system. They're listed in the order you'll probably need to install them in:</p>
+        <table class="zebra-striped">
+          <thead>
+            <tr>
+              <th>Requirement</th>
+              <th>Used For</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PHP 5.3 CLI</td>
+              <td>Command-line version of PHP, used to run <code>phix</code></td>
+            </tr>
+            <tr>
+              <td>PHP XML extension</td>
+              <td>Used by multiple tools for working with XML files.<br/>
+                <span class="label warning">Be aware</span> not every Linux distro installs this extension by default when you install PHP!</td>
+            </tr>
+            <tr>
+              <td><a href="http://www.php.net/xsl">PHP XSL extension</a></td>
+              <td>Used by documentation tools that <code>phix</code> supports.<br/>
+                <span class="label warning">Be aware</span> not every Linux distro installs this extension by default when you install PHP!</td>
+            </tr>
+            <tr>
+              <td>PEAR Installer</td>
+              <td>Used to install PHP components and developer tools, such as <code>phix</code>.<br/>
+                <span class="label notice">Note</span> support for the Pyrus Installer will be added in a future version.</td>
+            </tr>
+            <tr>
+              <td><a href="http://www.php.net/pdo">PHP PDO extension</a></td>
+              <td>A requirement for one of the QA tools that <code>phix</code> supports.<br /><span class="label warning">Be aware</span> not every Linux distro installs this extension by default when you install PHP!</td>
+            </tr>
+            <tr>
+              <td><a href="http://www.php.net/posix">PHP POSIX extension</a></td>
+              <td>Used by <code>phix</code> to tell whether to use colours in the output or not.<br /><span class="label warning">Be aware</span> not every Linux distro installs this extension by default when you install PHP!</td>
+            </tr>
+            <tr>
+              <td><a href="http://xdebug.org">XDebug</a></td>
+              <td>Used for code coverage reporting.</td>
+            </tr>
+            <tr>
+              <td><a href="http://www.php.net/imagick">PHP ImageMagick extension</a></td>
+              <td>Used by the QA tools that <code>phix</code> supports to create diagrams of how good your code is.<br/>
+                <span class="label notice">Note</span> you may need to install this extension from PECL.
+              </td>
+            </tr>
+            <tr>
+              <td><a href="http://www.php.net/ncurses">PHP NCurses extension</a></td>
+              <td>Used by <code>phix</code> to discover the width and height of your terminal window.<br/>
+                <span class="label notice">Note</span> this PHP extension is optional.
+              </td>
+            </tr>
+            <tr>
+              <td><a href="http://www.php.net/proctitle">PHP Proctitle extension</a></td>
+              <td>Used by <code>phix</code> to make sure you see 'phix' and not 'php' in the list when you run the <code>ps</code> command.<br/>
+                <span class="label notice">Note</span> this PHP extension is optional.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Installing Phix via PEAR</h3>
+        <p>Once all of the dependencies have been installed, you can then install <code>phix</code> using the standard PEAR installer.  Run the following commands as <code>root</code> (on Linux, OSX, and other UNIX-like operating systems) or as a user with <code>administrator</code> privileges on Windows.</p>
+        <pre>
+pear clear-cache
+pear upgrade pear/pear
+pear channel-discover pear.phix-project.org
+pear -D auto_discover=1 install -Ba phix/phix4componentdev
+</pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="threecol">
+          <h2>What Gets Installed</h3>
+          <p><code>phix</code> drinks its own champagne - it pulls in and re-uses a number of existing PHP components and developer tools.</p>
+        </div>
+        <div class="ninecol last">
+          <h3>The Tools That Phix Also Installs</h3>
+          <p>Here's a full list of what gets installed when you install <code>phix</code>:</p>
+          <table class="zebra-striped">
+            <thead>
+              <tr>
+                <th>Tool / Component</th>
+                <th>Type</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="http://phing.info/">PHing</a></td>
+                <td>Build tool</td>
+                <td>Ant-sort-of clone written in PHP, for automating common development tasks.</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/Mayflower/PHP_CodeBrowser">PHP_CodeBrowser</a></td>
+                <td>QA tool</td>
+                <td>Useful code-review tool for browsing through your code and seeing what problems the other QA tools have found.</td>
+              </tr>
+              <tr>
+                <td><a href="http://pear.php.net/PHP_CodeSniffer">PHP_CodeSniffer</a></td>
+                <td>QA tool</td>
+                <td>Useful code-review tool for checking whether your code meets a prescribed coding standard or not.</td>
+              </tr>
+              <tr>
+                <td><a href="http://pdepend.org">PHP_Depend</a></td>
+                <td>QA tool</td>
+                <td>Useful code-review tool for analysing the quality of your code.</td>
+              </tr>
+              <tr>
+                <td><a href="http://phpmd.org">PHP_PMD</a></td>
+                <td>QA tool</td>
+                <td>Useful code-review tool for analysing the quality of your code.</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.phpdoc.org">PHPDocumentor</a></td>
+                <td>Documentation tool</td>
+                <td>The original way to generate documentation from your PHP code.<br/>
+                  <span class="label notice">Note</span> future versions of <code>phix</code> will support alternatives.
+                </td>
+              </tr>
+              <tr>
+                <td><a href="http://www.phpunit.de">PHPUnit</a></td>
+                <td>QA tool</td>
+                <td>The de-facto standard tool for creating and running unit tests of your PHP code.</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.pirum-project.org">Pirum</a></td>
+                <td>Build tool</td>
+                <td>Creates PEAR channels, where you publish your PEAR-installer-compatible packages.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p><span class="label warning">Be aware</span> that each of these components and tools will also install components and tools that they, in turn, depend upon.</p>
+        </div>
       </div>
     </div>
     </section>
