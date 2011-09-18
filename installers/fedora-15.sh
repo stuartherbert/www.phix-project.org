@@ -26,6 +26,21 @@ intro() {
     echo
 }
 
+pecl_module() {
+    local pecl_flags=""
+    if [[ -n $2 ]] ; then
+        pecl_flags="-D preferred_state=$2"
+    fi
+
+    pecl list $x > /dev/null
+    if [[ $? == 1 ]] ; then
+        pecl $pecl_flags install $x || die "pecl component build failed; please investigate why"
+        echo "extension=$1.so" > /etc/php.d/$1.ini
+    else
+        echo "PECL module $1 already installed ... skipping"
+    fi
+}
+
 # step 0: do we have the required permissions to run this script?
 #
 # we must be root, otherwise we cannot install system packages
@@ -61,15 +76,7 @@ yum install -y gcc php-devel php-pear php-xml php-pdo php-process php-pecl-xdebu
 # the machine
 intro "Installing additional PHP modules from PECL"
 
-for x in proctitle-0.1.1 ; do
-    pecl list $x > /dev/null
-    if [[ $? == 1 ]] ; then
-        pecl install $x || die "pecl component build failed; please investigate why"
-        echo "extension=$x.so" > /etc/php.d/$x.ini
-    else
-        echo "PECL module $x already installed ... skipping"
-    fi
-done
+pecl_module proctitle alpha
 
 # step 4: install packages via PEAR-installer
 #
