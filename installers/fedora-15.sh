@@ -40,7 +40,7 @@ fi
 intro "Checking your PHP version ..."
 which php > /dev/null
 if [[ $? != 0 ]] ; then
-    yum install php-cli || die "Unable to install PHP CLI on your system; please investigate why"
+    yum install -y php-cli || die "Unable to install PHP CLI on your system; please investigate why"
 fi
 php -v | head -n 1 | grep -E 'PHP 5.[34].|PHP [6789].' > /dev/null
 if [[ $? != 0 ]]; then
@@ -53,7 +53,7 @@ fi
 # for the tools that we rely on
 intro "Installing required system packages"
 
-yum install gcc php-devel php-pear php-xml php-pdo php-process php-pecl-xdebug php-pecl-imagick php-pecl-ncurses || die "yum install failed; please investigate why"
+yum install -y gcc php-devel php-pear php-xml php-pdo php-process php-pecl-xdebug php-pecl-imagick php-pecl-ncurses || die "yum install failed; please investigate why"
 
 # step 3: dependencies we need to install ourselves
 #
@@ -61,7 +61,7 @@ yum install gcc php-devel php-pear php-xml php-pdo php-process php-pecl-xdebug p
 # the machine
 intro "Installing additional PHP modules from PECL"
 
-for x in proctitle ; do
+for x in proctitle-0.1.1 ; do
     pecl list $x > /dev/null
     if [[ $? == 1 ]] ; then
         pecl install $x || die "pecl component build failed; please investigate why"
