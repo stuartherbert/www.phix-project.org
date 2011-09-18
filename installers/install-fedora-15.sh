@@ -19,6 +19,7 @@ die() {
 }
 
 intro() {
+    echo
     echo "##"
     echo "## $*"
     echo "##"
@@ -26,7 +27,9 @@ intro() {
 }
 
 # step 0: do we have the required permissions to run this script?
-if [[ `id -u` != 0 ]]
+#
+# we must be root, otherwise we cannot install system packages
+if [[ `id -u` != 0 ]] ; then
     die "*** Sorry, you must be root to run this script"
 fi
 
@@ -45,16 +48,38 @@ yum install gcc php-devel php-pear php-xml php-pdo php-process php-pecl-xdebug p
 intro "Installing additional PHP modules from PECL"
 
 for x in proctitle ; do
-    pecl install $x || die "pecl component build failed; please investigate why"
-    echo "extension=$x.so" > /etc/php.d/$x.ini
+    pecl list $x > /dev/null
+    if [[ $? == 1 ]] ; then
+        pecl install $x || die "pecl component build failed; please investigate why"
+        echo "extension=$x.so" > /etc/php.d/$x.ini
+    else
+        echo "PECL module $x already installed ... skipping"
+    fi
 done
 
 # step 3: install packages via PEAR-installer
 #
 # everything else was simply to make this step possibe
-intro "Installing phix4componentdev from pear.phix-project.org"
+intro "Using PEAR to install phix/phix4componentdev from pear.phix-project.org"
 
-pear channel-discover pear.phix-project.org || die "Unable to find pear.phix-project.org"
-pear -D auto_discover=1 install -Ba phix/phix4componentdev || die "Unable to install phix4componentdev"
+# first rule of PEAR-installer: clear the cache
+pear clear-cache
+
+# register our channel, if it is not already registered
+pear list-channels | grep pear.phix-project.org > /dev/null
+if [[ $? == 1 ]] ; then
+    pear channel-discover pear.phix-project.org || die "Unable to find pear.phix-project.org"
+fi
+
+# install or upgrade phix4componentdev
+pear list phix/phix4componentdev > /dev/null
+if [[ $? == 1 ]] ; then
+    pear -D auto_discover=1 install -Ba phix/phix4componentdev || die "Unable to install phix/phix4componentdev"
+else
+    pear -D auto_discover=1 upgrade -Ba phix/phix4componentdev || die "Unable to upgrade phix/phix4componentdev ... already on latest version?"
+fi
+
+# if we get here, job done
+intro "Installation complete :)"
 
 # vim: set tabstop=4 shiftwidth=4 expandtab:
