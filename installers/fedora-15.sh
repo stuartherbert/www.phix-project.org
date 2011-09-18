@@ -33,7 +33,21 @@ if [[ `id -u` != 0 ]] ; then
     die "*** Sorry, you must be root to run this script"
 fi
 
-# step 1: dependencies to install via yum
+# step 1: do we have PHP 5.3 or later installed?
+#
+# no point trying to install onto a machine that either does not have
+# PHP at all, or does not have a version that supports our code
+intro "Checking your PHP version ..."
+which php > /dev/null
+if [[ $? != 0 ]] ; then
+    yum install php-cli || die "Unable to install PHP CLI on your system; please investigate why"
+fi
+php -v | head -n 1 | grep 'PHP 5.[34].|PHP [6789].' > /dev/null
+if [[ $? != 0 ]]; then
+    die "Your installed version of PHP CLI is too old; phix requires PHP 5.3 or later"
+fi
+
+# step 2: dependencies to install via yum
 #
 # some of these are our dependencies, but most are dependencies
 # for the tools that we rely on
@@ -41,7 +55,7 @@ intro "Installing required system packages"
 
 yum install gcc php-devel php-pear php-xml php-pdo php-process php-pecl-xdebug php-pecl-imagick php-pecl-ncurses || die "yum install failed; please investigate why"
 
-# step 2: dependencies we need to install ourselves
+# step 3: dependencies we need to install ourselves
 #
 # this makes it a lot easier to get all the required dependencies onto
 # the machine
@@ -57,7 +71,7 @@ for x in proctitle ; do
     fi
 done
 
-# step 3: install packages via PEAR-installer
+# step 4: install packages via PEAR-installer
 #
 # everything else was simply to make this step possibe
 intro "Using PEAR to install phix/phix4componentdev from pear.phix-project.org"
