@@ -42,7 +42,7 @@ which php > /dev/null
 if [[ $? != 0 ]] ; then
     yum install php-cli || die "Unable to install PHP CLI on your system; please investigate why"
 fi
-php -v | head -n 1 | grep 'PHP 5.[34].|PHP [6789].' > /dev/null
+php -v | head -n 1 | grep -E 'PHP 5.[34].|PHP [6789].' > /dev/null
 if [[ $? != 0 ]]; then
     die "Your installed version of PHP CLI is too old; phix requires PHP 5.3 or later"
 fi
