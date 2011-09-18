@@ -32,9 +32,9 @@ pecl_module() {
         pecl_flags="-D preferred_state=$2"
     fi
 
-    pecl list $x > /dev/null
+    pecl list $1 > /dev/null 2>&1
     if [[ $? == 1 ]] ; then
-        pecl $pecl_flags install $x || die "pecl component build failed; please investigate why"
+        pecl $pecl_flags install $1 || die "pecl component build failed; please investigate why"
         echo "extension=$1.so" > /etc/php.d/$1.ini
     else
         echo "PECL module $1 already installed ... skipping"
@@ -53,11 +53,11 @@ fi
 # no point trying to install onto a machine that either does not have
 # PHP at all, or does not have a version that supports our code
 intro "Checking your PHP version ..."
-which php > /dev/null
+which php > /dev/null 2>&1
 if [[ $? != 0 ]] ; then
     yum install -y php-cli || die "Unable to install PHP CLI on your system; please investigate why"
 fi
-php -v | head -n 1 | grep -E 'PHP 5.[34].|PHP [6789].' > /dev/null
+php -v | head -n 1 | grep -E 'PHP 5.[34].|PHP [6789].' > /dev/null 2>&1
 if [[ $? != 0 ]]; then
     die "Your installed version of PHP CLI is too old; phix requires PHP 5.3 or later"
 fi
