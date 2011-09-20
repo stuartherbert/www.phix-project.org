@@ -70,7 +70,15 @@ intro "Installing required system packages"
 
 apt-get install -y gcc php5-dev php-pear php5-xdebug php5-imagick php5-xsl libncursesw5-dev || die "apt-get install failed; please investigate why"
 
-# step 3: dependencies we need to install ourselves
+# step 3: we need to upgrade PEAR
+#
+# ubuntu installs an older version of the PEAR installer
+intro "Upgrading PEAR installer to latest version"
+
+pear clear-cache
+pear upgrade pear/pear
+
+# step 4: dependencies we need to install ourselves
 #
 # this makes it a lot easier to get all the required dependencies onto
 # the machine
@@ -79,7 +87,7 @@ intro "Installing additional PHP modules from PECL"
 pecl_module ncurses
 pecl_module proctitle alpha
 
-# step 4: install packages via PEAR-installer
+# step 5: install packages via PEAR-installer
 #
 # everything else was simply to make this step possibe
 intro "Using PEAR to install phix/phix4componentdev from pear.phix-project.org"
