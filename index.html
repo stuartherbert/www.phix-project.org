@@ -10,19 +10,22 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <!-- javascript -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script>$(function () { prettyPrint() })</script>
+    <script src="assets/1.3.0/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/application.js"></script>
+
     <!-- css -->
-    <link href="assets/css/bootstrap-1.3.0-no-grid.min.css" rel="stylesheet"/>
+    <link href="assets/1.3.0/bootstrap-no-grid.min.css" rel="stylesheet"/>
     <link href="assets/css/1140.css" rel="stylesheet"/>
     <link href="assets/css/doc.css" rel="stylesheet"/>
-
-    <!-- javascript -->
-    <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
-    <script src="assets/js/application.js"></script>
   </head>
 
   <body>
     <!-- topbar -->
-    <div class="topbar">
+    <div class="topbar" data-scrollspy="scrollspy">
       <div class="fill">
         <div class="container">
           <div class="row">
@@ -32,9 +35,9 @@
                 <li class="active"><a href="#masthead">Overview</a></li>
                 <li><a href="#about">Why Components</a></li>
                 <li><a href="#install">Installation</a></li>
-                <li><a href="#getstarted">Getting Started</a></li>
                 <li><a href="#extend">Extend</a></li>
                 <li><a href="#contribute">Contribute</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
                 <li><a href="#license">License</a></li>
               </ul>
             </div>
@@ -79,28 +82,234 @@
     </div>
     <div class="row">
       <div class="threecol">
-        <h2>Free Your Code!</h2>
+        <h2>Seven Steps To Better Code, Faster</h2>
+        <p>The time developers need to write software, is <strong>the</strong> number 1 bottleneck in any firm that creates software. Creating your apps and websites out of reusable components can go a long way to helping with that.</p>
       </div>
       <div class="ninecol last">
-        <p>Something here.</p>
+        <h3>Phix Takes Care Of The Infrastructure For Components</h3>
+        <p>
+        <p>Use <code>phix</code> to:
+        <ul>
+          <li>Create components written in PHP</li>
+          <li>Review the quality of the code in your components</li>
+          <li>Document the code in your components</li>
+          <li>Build a package that can be installed by the PEAR Installer</li>
+          <li>Publish your packages</li>
+          <li>Reuse your components, and components written by others</li>
+          <li>Upgrade your component's skeleton files</li>
+        </ul>
+        <p>... so that you can spend your time focusing on code, not the infrastructure of your component.</p>
+        <h3>Create Components For PHP</h3>
+        <p>Creating a new component from scratch is a one-line command:</p>
+        <pre>
+# create a new PHP component in the current folder
+$ phix php-library:init .
+</pre>
+        <p>This gives you a complete folder structure - the same one used by <code>phix</code> itself - for you to put your code and tests into.</p>
+        <h3>Review The Code In Those Components</h3>
+        <p>Want to run your unit tests, and have them generate code-coverage and code-quality metrics? That's all done in a one-line command:</p>
+        <pre>
+# run your component's unit tests
+$ phing test
+</pre>
+        <p>And, once your unit tests all pass, if you want additional code quality information, that's also a one-line command:</p>
+        <pre>
+# generate code-review information
+$ phing code-review
+</pre>
+        <h3>Document The Code In Your Components</h3>
+        <p>Are you using document comment blocks in your code? You can turn those into a browsable website with a one-line command:</p>
+        <pre>
+# generate API documentation from your PHP code
+$ phing phpdoc
+</pre>
+        <h3>Build A Component That's PEAR-Installer Compatible</h3>
+        <p>When you're happy with your component, and you want to package it up, that's a one-line command:</p>
+        <pre>
+# create a PEAR-compatible package from your component
+$ phing pear-package
+</pre>
+        <h3>Publish Your Component</h3>
+        <p>When you're ready to share your package with others, it's just a one-line command to add your package to your existing PEAR channel, if you're using <a href="http://www.pirum-project.org">Pirum</a> for creating your PEAR channel:</p>
+        <pre>
+# publish your PEAR package to your local checkout of your PEAR channel
+$ phing publish-local
+</pre>
+        <h3>Reuse Your Components - And The Components Of Others</h3>
+        <p>Want to reuse your component in another project? No more cut &amp; paste, no more <code>svn:externals</code>. Make that project a component too, and add your component as a required dependency in the project's package.xml file.</p>
+        <p>And because <code>package.xml</code> is a standard part of a PEAR package, your project can also reuse any third-party components that are also PEAR-Installer compatible.</p>
+        <p>Reusing your components is where the real payoff is - so you spend less time re-inventing the wheel, and more time focusing on what's unique to your app.</p>
+        <h3>Upgrade Your Component's Skeleton Files</h3>
+        <p>At the heart of your component are the skeleton files that automate all of the tasks above.  Maintaining these skeleton files by hand would be a chore, but with <code>phix</code>, they can be upgraded with a one-line command:</pre>
+        <pre>
+# upgrade the skeleton files
+$ phix php-library:upgrade .
+</pre>
+        <p>And best of all ... your component is self-contained. Happy with the component as it is?  You don't need to upgrade the skeleton files, which means your components don't break just because you've installed a newer version of <code>phix</code> on your computer.</p>
+        <h3>Do It Your Way</h3>
+        <p>Want to go futher than <code>phix</code> does, and automate additional tasks that are unique to your working style or environment?  Just put those tasks in <code>build.local.xml</code>, and <code>phix</code> will never overwrite them.</p>
       </div>
     </div>
     <div class="row">
       <div class="threecol">
-        <h2>Share Your Components</h2>
+        <h2>Framework Agnostic</h2>
+        <p>If you're building an app, chances are you're working with a framework of some sort. One day, you'll need to change framework. If all of your code is tied to that framework, change will be very very expensive indeed.</p>
+        <p>By moving as much of your code as is sensible into their own components, you'll be well-prepared for when that day comes.</p>
       </div>
       <div class="ninecol last">
-        <p>Something here</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="threecol">
-        <h2>Want To Know More?</h2>
-      </div>
-      <div class="ninecol last">
-        <h3>Watch The Video That Started It All</h3>
-        <p>Watch Stuart Herbert talk at PHPUK 2011 about the problems</p>
+        <h3>Watch The Video From PHPUK 2011</h3>
+        <p>Watch <a href="http://www.stuartherbert.com">Stuart Herbert</a> talk at PHPUK 2011 in London about the problems that inspired him to create <code>phix</code>, and how his approach to components evolved:</p>
         <iframe src="http://player.vimeo.com/video/21145583?title=0&amp;byline=0&amp;portrait=0" width="400" height="225" frameborder="0"></iframe><p><a href="http://vimeo.com/21145583">Beyond Frameworks - Stuart Herbert</a> from <a href="http://vimeo.com/user6188686">PHP UK Conference</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="threecol">
+        <h2>Backed By Extensive Docs</h2>
+        <p>If you're new to components in PHP, there's a helping hand to explain everything in detail.</p>
+      </div>
+      <div class="ninecol last">
+        <h3>Phix Has Built-In Help</h3>
+        <p><code>phix</code> comes with built-in help to explain what it can do:</p>
+        <pre>
+# run phix with no args to get the built-in help
+$ phix
+phix 0.13.1 -  http://www.phix-project.org
+Copyright (c) 2011 Stuart Herbert and contributors
+Released under the BSD license
+
+SYNOPSIS
+    /usr/bin/phix [ -? -d -h -v ] [ --? --debug --help --version ] [ -I &lt;path&gt;
+     ] [ --include=&lt;path&gt; ] [ command ] [ command-options ]
+
+OPTIONS
+    Use the following switches in front of any &lt;command&gt; to have the following
+    effects.
+
+    -? | -h
+        display a summary of the command-line structure
+
+    -I &lt;path&gt; | --include=&lt;path&gt;
+        add a folder to load commands from
+
+        phix finds all of its commands by searching PHP's include_path for PHP
+        files in folders called 'PhixCommands'. If you want to phix to look in
+        other folders without having to add them to PHP's include_path, use
+        --include to tell phix to look in these folders.
+
+        phix expects '&lt;path&gt;' to point to a folder that conforms to the PSR0
+        standard for autoloaders.
+
+        For example, if your command is the class '\Me\Tools\PhixCommands
+        \ScheduledTask', phix would expect to autoload this class from the 'Me
+        /Tools/PhixCommands/ScheduledTask.php' file.
+
+        If your class lives in the './myApp/lib/Me/Tools/PhixCommands' folder,
+        you would call phix with 'phix --include=./myApp/lib'
+
+    -d | --debug
+        enable debugging output
+
+    -v | --version
+        display phix version number
+
+    --? | --help
+        display a full list of supported commands
+
+COMMANDS
+    component-manager:version # show which version of ComponentManager is
+                                installed
+    help                      # get detailed help about a specific phix
+                                command
+    pear:expand-package-xml   # expand the tokens and contents of the
+                                PEAR-compatible package.xml file
+    pear:register-channels    # register the channels for the dependencies
+                                listed in the PEAR-compatible package.xml file
+    php-docbook:init          # initialise the directory structure of a
+                                php-docbook component
+    php-docbook:status        # check the status of a php-docbook project
+    php-docbook:upgrade       # upgrade the structure of a php-docbook project
+                                to the latest version
+    php-docbook:version       # show which version of php-docbook is installed
+    php-library:init          # initialise the directory structure of a
+                                php-library component
+    php-library:status        # check the status of a php-library component
+    php-library:upgrade       # upgrade the structure of a php-library
+                                component to the latest version
+    php-library:version       # show which version of php-library is installed
+    php-webapp:init           # initialise the directory structure of a
+                                php-webapp component
+    php-webapp:status         # check the status of a php-webapp component
+    php-webapp:version        # show which version of php-webapp is installed
+
+    See /usr/bin/phix help &lt;command&gt; for detailed help on &lt;command&gt;
+</pre>
+        <h3>Each Component's build.xml File Has Built-In Help</h3>
+        <p>Want to know what automated tasks are available inside your component?</p>
+        <pre>
+# showing the built-in help inside each component
+# run this in the top-level folder of your component
+$ phing
+Buildfile: /home/stuart/Devel/Phix/ConsoleDisplayLib/build.xml
+ [property] Loading /home/stuart/Devel/Phix/ConsoleDisplayLib/build.properties
+
+ &gt; help:
+
+     [echo] ConsoleDisplayLib 3.0.0: build.xml targets:
+     [echo] 
+     [echo] lint
+     [echo]   Check the PHP files for syntax errors
+     [echo] test
+     [echo]   Run the component's PHPUnit tests
+     [echo] code-review
+     [echo]   Run all of the code quality targets:
+     [echo] 
+     [echo]   code-browser
+     [echo]     Run code quality tests for PHP_CodeBrowser
+     [echo]   phpcpd
+     [echo]     Check for cut and paste problems
+     [echo]   phpdoc
+     [echo]     Create the PHP docs from source code
+     [echo] 
+     [echo] build-vendor
+     [echo]   Populate vendor/ with this package's dependencies
+     [echo] pear-package
+     [echo]   Create a PEAR-compatible package
+     [echo] install-vendor
+     [echo]   Install this component from source into vendor/
+     [echo] vendor-pear
+     [echo]   Run additional PEAR commands inside the vendor folder
+     [echo] install-system
+     [echo]   Install this component from source for all local users
+     [echo]   You must be root to run this target on Linux!!
+     [echo] publish-local
+     [echo]   Publish your PEAR-compatible package into a local copy
+     [echo]   of your PEAR channel
+     [echo] clean
+     [echo]   Remove all temporary folders created by this build file
+     [echo] 
+[phingcall] Calling Buildfile '/home/stuart/Devel/Phix/ConsoleDisplayLib/build.xml' with target 'local-help'
+ [property] Loading /home/stuart/Devel/Phix/ConsoleDisplayLib/build.properties
+
+ &gt; local-help:
+
+     [echo] This component has the following additional commands:
+     [echo] 
+     [echo] git-tag
+     [echo]   Tag the current version in git
+     [echo] 
+     [echo] git-force-tag
+     [echo]   Force tag the current version in git (use with caution!)
+     [echo] 
+     [echo] publish-and-push
+     [echo]   Git push to upstream, publish to PEAR channel
+     [echo] 
+     [echo] tpp - tag, publish, and push
+     [echo]   Git tag, push to upstream, publish to PEAR channel
+     [echo] 
+</pre>
+        <h3>The PHP Components Blog Posts</h3>
+        <p><a href="http://www.stuartherbert.com">Stuart Herbert</a>, the author of <code>phix</code>, has published a series of <a href="http://blog.stuartherbert.com/php/php-components/">PHP Components blog posts</a>, covering what you need to know about creating and publishing your PHP components.</p>
+        <p>New releases of <code>phix</code> will be announced there, and also on <a href="http://twitter.com/stuherbert">his Twitter feed</a>.</p>
       </div>
     </div>
     </section>
@@ -139,32 +348,12 @@
 curl http://phix-project.org/installers/ubuntu-11.04.sh | sudo bash
 </pre>
         <p><span class="label warning">Be aware</span> you need to <code>sudo</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
-        <pre>
-# become root
-sudo su -
-
-# binary modules that may be missing
-apt-get install php5-xdebug
-apt-get install php5-imagick
-apt-get install php5-xsl
-
-# make sure we have the latest PEAR installer
-pear upgrade pear/pear
-
-# build the ncurses PHP extension
-apt-get install libncursesw5-dev
-pecl install ncurses
-echo "extension=ncurses.so" > /etc/php5/cli/conf.d/ncurses.ini
-
-# install phix
-pear channel-discover pear.phix-project.org
-pear -D auto_discover=1 install -Ba phix/phix4componentdev
-</pre>
         <h3>Installing On Fedora, CentOS, or RedHat Enterprise Linux</h3>
         <p>Install <code>phix</code> on <a href="http://fedoraproject.org">Fedora</a>, <a href="http://www.centos.org">CentOS</a>, <a href="http://www.redhat.com">RedHat Enterprise Linux</a> or other RPM-based Linux distros using our one-line installer:</p>
         <pre>
 curl http://www.phix-project.org/installers/fedora-15.sh | sudo bash
 </pre>
+        <p><span class="label warning">Be aware</span> you need to <code>sudo</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
         </div>
       </div>
       <div class="row">
@@ -310,29 +499,6 @@ pear -D auto_discover=1 install -Ba phix/phix4componentdev
     </div>
     </section>
 
-    <!-- gettingstarted -->
-    <section id="getstarted">
-      <div class="row">
-        <div class="twelvecol last">
-          <div class="page-header">
-            <h1>Getting Started With Phix Today</h1>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="threecol">
-          <h2>Creating A Component For PHP</h2>
-          <p>Creating and maintaining PEAR-installer-compatible components by hand is tedious and error-prone. <code>phix</code> automates it all for you.</p>
-        </div>
-        <div class="ninecol last">
-          <h3>Creating Your First PHP Library Component</h3>
-          <p>Something here.</p>
-          <h3>Learning More</h3>
-          <p>When you're ready, you'll find all the documentation about <a href="http://blog.stuartherbert.com/php/php-components">PHP Components</a> over on Stuart's blog.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- extend -->
     <section id="extend">
       <div class="row">
@@ -345,7 +511,7 @@ pear -D auto_discover=1 install -Ba phix/phix4componentdev
       <div class="row">
         <div class="threecol">
           <h2>Phix Was Built To Be Extensible</h2>
-          <p>At the heart of Phix is a generic CLI tool, which you can add your own commands to.</p>
+          <p>At the heart of <code>phix</code> is a generic CLI tool, which you can add your own commands to.</p>
         </div>
         <div class="ninecol last">
           <h3>Looking At The Structure Of Phix</h3>
@@ -354,59 +520,18 @@ pear -D auto_discover=1 install -Ba phix/phix4componentdev
             <li><code>phix</code>, which is a generic command-line tool, and</li>
             <li><code>ComponentManager</code>, which adds a set of commands to <code>phix</code> for creating and maintaining PHP components</li>
           </ul>
-
-          <!--p>Here are all of the components as a diagram. The components are split into two groups:</p>
-        <ul>
-          <li>the top group shows the components that are specific for PHP component development, and</li>
-          <li>the bottom group shows the components that provide the generic command-line tool <code>phix</code>.</li>
-        </ul>
-        <p>The lines show which components depend on which other components.</p>
-        <img src="assets/images/phix-component-structure.png"/>
-        <p><code>phix</code> was built to be extensible.  <code>phix4componentdev</code> is just an extension to <code>phix</code> that provides extra commands for creating and maintaining PHP components. It is very easy to add your own commands for <code>phix</code>.</p>
-        <h3>Introducing PhixCommands</h3>
-        <p>When you run <code>phix help</code>, you can see a full list of all of the commands that <code>phix</code> knows about:</p>
-        <pre>
-$ phix help
-phix 0.13.0 -  http://www.phix-project.org
-Copyright (c) 2011 Stuart Herbert and contributors
-Released under the BSD license
-
-[...]
-
-COMMANDS
-    help                    # get detailed help about a specific phix command
-    pear:expand-package-xml # expand the tokens and contents of the
-                              PEAR-compatible package.xml file
-    pear:register-channels  # register the channels for the dependencies
-                              listed in the PEAR-compatible package.xml file
-    php-docbook:init        # initialise the directory structure of a
-                              php-docbook component
-    php-docbook:status      # check the status of a php-docbook project
-    php-docbook:upgrade     # upgrade the structure of a php-docbook project
-                              to the latest version
-    php-docbook:version     # show which version of php-docbook is installed
-    php-library:init        # initialise the directory structure of a
-                              php-library component
-    php-library:status      # check the status of a php-library component
-    php-library:upgrade     # upgrade the structure of a php-library component
-                              to the latest version
-    php-library:version     # show which version of php-library is installed
-    php-webapp:init         # initialise the directory structure of a
-                              php-webapp component
-    php-webapp:status       # check the status of a php-webapp component
-    php-webapp:version      # show which version of php-webapp is installed
-
-    See /usr/bin/phix help <command> for detailed help on <command>
-        </pre-->
           <p>Each of the <code>phix</code> commands is implemented in its own PHP class:</p>
           <ul>
             <li>that lives inside the <code>PhixCommands</code> namespace,</li>
             <li>that implements the <code>Phix_Project\PhixExtensions\CommandInterface</code>, and</li>
             <li>that extends <code>Phix_Project\PhixExtensions\CommandBase</code>.</li>
           </ul>
-        <!--p>The <code>PhixCommands</code> namespace can be nested inside other namespaces, to keep the code for your commands separate from other people's code.</p>
-        <p>When you run <code>phix</code>, the first thing <code>phix</code> does is search PHP's <code>include_path</code> for classes inside the <code>PhixCommands</code> namespace.</p-->
-        <p><code>phix</code> was built to be extensible.  <code>phix4componentdev</code> is just an extension to <code>phix</code> that provides extra commands for creating and maintaining PHP components. It is very easy to add your own commands for <code>phix</code>.</p>
+          <p><code>phix4componentdev</code> is just an extension to <code>phix</code> that provides the commands for creating and maintaining PHP components.</p>
+          <h3>Extending Phix With Your Own Commands</h3>
+          <p><code>phix</code> was built to be extensible, for you to be able to drop your own commands in via your own components.</p>
+          <p>The best place to start is by looking at the <a href="http://github.com/stuartherbert/ComponentManagerPhpLibrary">ComponentManagerPhpLibrary</a> component on GitHub.  This component provides the <code>phix php-library:*</code> commands that you use to create a new PHP component.</p>
+          <p>You'll also find <a href="http://github.com/stuartherbert/TasksLib">TasksLib</a> useful. It is a small, but growing, set of automated tasks - with full error and exception handling - specifically designed to save each new <code>phix</code> command having to duplicate common functionality.</p>
+        </div>
       </div>
     </section>
 
@@ -422,7 +547,7 @@ COMMANDS
       <div class="row">
         <div class="threecol">
           <h2>Phix Is For The Community</h2>
-          <p>All of the source code for Phix is available on GitHub.</p>
+          <p>All of the source code for <code>phix</code> is available on GitHub.</p>
         </div>
         <div class="ninecol last">
           <h3>Checking The Code Out From GitHub</h3>
@@ -517,8 +642,33 @@ COMMANDS
           <p>Contributions to <code>phix</code> are very welcome - just fork the code on <a href="https://github.com">GitHub</a>, make your changes in their own branch, and send a <a href="http://help.github.com/send-pull-requests/">pull request</a> to us.</p>
         </div>
       </div>
-      </section>
-  
+    </section>
+
+    <!-- roadmap -->
+    <section id="roadmap">
+      <div class="row">
+        <div class="twelvecol last">
+          <div class="page-header">
+            <h1>Roadmap</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="threecol">
+          <h2>Phix Is Constantly Evolving</h2>
+          <p>As a community, we are still working out what the best practices are when it comes to creating, testing, and distributing components written in PHP. <code>phix</code> will always be at the forefront of adopting these best practices.</p>
+        </div>
+        <div class="ninecol last">
+          <h3>Public Roadmap</h3>
+          <p><a href="https://trello.com/board/phix/4e705ecfd8ae22a3990013cf">Our roadmap</a> is publically available on <a href="http://trello.com">Trello</a>:</p>
+          <img src="assets/images/phix-trello.png" />
+          <h3>How We Use Trello</h3>
+          <p>We use the red / amber / green coloured labels to show what has been done, and what still needs completing, for each planned release. You'll find completed releases in the archives, if you're curious to see a detailed list of what we delivered in those releases.</p>
+          <p>Got an idea that you can't find on the roadmap? <a href="http://twitter.com/stuherbert">Let Stuart know</a>.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- license -->
     <section id="license">
       <div class="row">
