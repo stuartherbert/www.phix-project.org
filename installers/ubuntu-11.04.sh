@@ -68,7 +68,7 @@ fi
 # for the tools that we rely on
 intro "Installing required system packages"
 
-apt-get install -y gcc php5-dev php-pear php5-xdebug php5-imagick php5-xsl || die "yum install failed; please investigate why"
+apt-get install -y gcc php5-dev php-pear php5-xdebug php5-imagick php5-xsl libncursesw5-dev || die "apt-get install failed; please investigate why"
 
 # step 3: dependencies we need to install ourselves
 #
