@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# install-fedora-15.sh
-#           installation script for phix on fedora 15
+# install-ubuntu-11.04.sh
+#           installation script for phix on ubuntu-11.04
 #
 # Author    Stuart Herbert
 #           (stuart@stuartherbert.com)
@@ -26,6 +26,21 @@ intro() {
     echo
 }
 
+pecl_module() {
+    local pecl_flags=""
+    if [[ -n $2 ]] ; then
+        pecl_flags="-D preferred_state=$2"
+    fi
+
+    pecl list $1 > /dev/null 2>&1
+    if [[ $? == 1 ]] ; then
+        pecl $pecl_flags install $1 || die "pecl component build failed; please investigate why"
+        echo "extension=$1.so" > /etc/php5/conf.d/$1.ini
+    else
+        echo "PECL module $1 already installed ... skipping"
+    fi
+}
+
 # step 0: do we have the required permissions to run this script?
 #
 # we must be root, otherwise we cannot install system packages
@@ -33,31 +48,38 @@ if [[ `id -u` != 0 ]] ; then
     die "*** Sorry, you must be root to run this script"
 fi
 
-# step 1: dependencies to install via yum
+# step 1: do we have PHP 5.3 or later installed?
+#
+# no point trying to install onto a machine that either does not have
+# PHP at all, or does not have a version that supports our code
+intro "Checking your PHP version ..."
+which php > /dev/null 2>&1
+if [[ $? != 0 ]] ; then
+    apt-get install -y php5-cli || die "Unable to install PHP CLI on your system; please investigate why"
+fi
+php -v | head -n 1 | grep -E 'PHP 5.[34].|PHP [6789].' > /dev/null 2>&1
+if [[ $? != 0 ]]; then
+    die "Your installed version of PHP CLI is too old; phix requires PHP 5.3 or later"
+fi
+
+# step 2: dependencies to install via yum
 #
 # some of these are our dependencies, but most are dependencies
 # for the tools that we rely on
 intro "Installing required system packages"
 
-apt-get install gcc php-devel php-pear php-xml php-pdo php-process php-pecl-xdebug php-pecl-imagick php-pecl-ncurses || die "yum install failed; please investigate why"
+apt-get install -y gcc php5-dev php-pear php5-xdebug php5-imagick php5-xsl || die "yum install failed; please investigate why"
 
-# step 2: dependencies we need to install ourselves
+# step 3: dependencies we need to install ourselves
 #
 # this makes it a lot easier to get all the required dependencies onto
 # the machine
 intro "Installing additional PHP modules from PECL"
 
-for x in proctitle ; do
-    pecl list $x > /dev/null
-    if [[ $? == 1 ]] ; then
-        pecl install $x || die "pecl component build failed; please investigate why"
-        echo "extension=$x.so" > /etc/php.d/$x.ini
-    else
-        echo "PECL module $x already installed ... skipping"
-    fi
-done
+pecl_module ncurses
+pecl_module proctitle alpha
 
-# step 3: install packages via PEAR-installer
+# step 4: install packages via PEAR-installer
 #
 # everything else was simply to make this step possibe
 intro "Using PEAR to install phix/phix4componentdev from pear.phix-project.org"
