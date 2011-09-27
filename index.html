@@ -357,16 +357,22 @@ Buildfile: /home/stuart/Devel/Phix/ConsoleDisplayLib/build.xml
         <p>To make sure that your machine has everything that <code>phix</code> relies on, use our one-line install method!</p>
       </div>
       <div class="ninecol last">
-        <h3>Installing On Debian Or Ubuntu</h3>
-        <p>Install <code>phix</code> on either <a href="http://www.debian.org">Debian</a> or <a href="http://www.ubuntu.com">Ubuntu</a> using our one-line installer:</p>
+        <h3>Installing On Debian</h3>
+        <p>Install <code>phix</code> on <a href="http://www.debian.org">Debian</a> using our one-line installer:</p>
         <pre>
-curl http://phix-project.org/installers/ubuntu-11.04.sh | sudo bash
+curl -O http://phix-project.org/installers/debian-6.sh ; su -c 'bash debian-6.sh'
 </pre>
-        <p><span class="label warning">Be aware</span> you need to <code>sudo</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
+        <p><span class="label warning">Be aware</span> you need to <code>su</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
         <h3>Installing On Fedora, CentOS, or RedHat Enterprise Linux</h3>
         <p>Install <code>phix</code> on <a href="http://fedoraproject.org">Fedora</a>, <a href="http://www.centos.org">CentOS</a>, <a href="http://www.redhat.com">RedHat Enterprise Linux</a> or other RPM-based Linux distros using our one-line installer:</p>
         <pre>
 curl http://www.phix-project.org/installers/fedora-15.sh | sudo bash
+</pre>
+        <p><span class="label warning">Be aware</span> you need to <code>sudo</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
+        <h3>Installing On Ubuntu</h3>
+        <p>Install <code>phix</code> on <a href="http://www.ubuntu.com">Ubuntu</a> using our one-line installer:</p>
+        <pre>
+curl http://phix-project.org/installers/ubuntu-11.04.sh | sudo bash
 </pre>
         <p><span class="label warning">Be aware</span> you need to <code>sudo</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
         </div>
