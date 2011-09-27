@@ -366,9 +366,9 @@ curl -O http://phix-project.org/installers/debian-6.sh ; su -c 'bash debian-6.sh
         <h3>Installing On Fedora, CentOS, or RedHat Enterprise Linux</h3>
         <p>Install <code>phix</code> on <a href="http://fedoraproject.org">Fedora</a>, <a href="http://www.centos.org">CentOS</a>, <a href="http://www.redhat.com">RedHat Enterprise Linux</a> or other RPM-based Linux distros using our one-line installer:</p>
         <pre>
-curl http://www.phix-project.org/installers/fedora-15.sh | sudo bash
+curl -O http://www.phix-project.org/installers/fedora-15.sh | su -c 'bash fedora-15.sh'
 </pre>
-        <p><span class="label warning">Be aware</span> you need to <code>sudo</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
+        <p><span class="label warning">Be aware</span> you need to <code>su</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
         <h3>Installing On Ubuntu</h3>
         <p>Install <code>phix</code> on <a href="http://www.ubuntu.com">Ubuntu</a> using our one-line installer:</p>
         <pre>
