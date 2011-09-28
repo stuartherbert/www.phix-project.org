@@ -87,6 +87,8 @@ intro "Checking for a C compiler ..."
 which gcc > /dev/null 2>&1
 if [[ $? != 0 ]]; then
     echo "To complete this setup, you need to install XCode from the App Store"
+else
+    intro "Setup complete :)"
 fi
 
 # vim: set tabstop=4 shiftwidth=4 expandtab:
