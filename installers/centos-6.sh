@@ -68,7 +68,7 @@ fi
 # for the tools that we rely on
 intro "Installing required system packages"
 
-yum install -y gcc php-devel php-pear php-xml php-pdo php-process php-pecl-xdebug php-pecl-imagick php-pecl-ncurses || die "yum install failed; please investigate why"
+yum install -y gcc make php-devel php-pear php-xml php-pdo php-process php-pecl-xdebug php-pecl-imagick php-pecl-ncurses || die "yum install failed; please investigate why"
 
 # step 3: we need to upgrade PEAR
 #
