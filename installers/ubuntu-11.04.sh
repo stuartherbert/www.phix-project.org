@@ -62,7 +62,7 @@ if [[ $? != 0 ]]; then
     die "Your installed version of PHP CLI is too old; phix requires PHP 5.3 or later"
 fi
 
-# step 2: dependencies to install via yum
+# step 2: dependencies to install via apt
 #
 # some of these are our dependencies, but most are dependencies
 # for the tools that we rely on
