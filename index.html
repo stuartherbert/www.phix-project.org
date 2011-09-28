@@ -347,7 +347,6 @@ Buildfile: /home/stuart/Devel/Phix/ConsoleDisplayLib/build.xml
         <h3>Minimal Requirements</h3>
         <p><code>phix</code> is a command-line (CLI) tool, which you run from a <strong>Terminal</strong> or <strong>CMD</strong> window. You don't need a web browser or a web server to use <code>phix</code>. You would normally install <code>phix</code> onto your development desktop, laptop or virtual machine; you wouldn't normally install <code>phix</code> into your production environment.</p>
         <p>Before you install <code>phix</code>, you will need an operating system with PHP 5.3 or later installed. Our one-line installer will take care of the additional requirements.</p>
-        <p><span class="label notice">Hint</span> Apple OSX Lion users might find <a href="http://akrabat.com/php/setting-up-php-mysql-on-os-x-10-7-lion/">Rob Allen's instructions for setting up PHP on OSX 10.7 Lion</a> very useful.</p>
         <p>If we don't have a one-line installer for your operating system yet, we also provide full instructions for installing from source.</p>
       </div>
     </div>
@@ -357,10 +356,17 @@ Buildfile: /home/stuart/Devel/Phix/ConsoleDisplayLib/build.xml
         <p>To make sure that your machine has everything that <code>phix</code> relies on, use our one-line install method!</p>
       </div>
       <div class="ninecol last">
+        <h3>Installing On Apple Mac OS X</h3>
+        <p><span class="label notice">Hint</span> Apple OSX Lion users might find <a href="http://akrabat.com/php/setting-up-php-mysql-on-os-x-10-7-lion/">Rob Allen's instructions for setting up PHP on OSX 10.7 Lion</a> very useful.</p>
+        <p>Install <code>phix</code> on <a href="http://www.apple.com/mac">Mac OS X</a> using our one-line installer:</p>
+        <pre>
+curl http://phix-project.org/installers/osx-10.7.sh | sudo bash
+</pre>
+        <p><span class="label warning">Be aware</span> you need to <code>sudo</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
         <h3>Installing On CentOS, or RedHat Enterprise Linux</h3>
         <p>Install <code>phix</code> on <a href="http://www.centos.org">CentOS</a> or <a href="http://www.redhat.com">RedHat Enterprise Linux</a> using our one-line installer:</p>
         <pre>
-curl -O http://www.phix-project.org/installers/centos-6.sh | su -c 'bash centos-6.sh'
+curl -O http://phix-project.org/installers/centos-6.sh | su -c 'bash centos-6.sh'
 </pre>
         <p><span class="label warning">Be aware</span> you need to <code>su</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
         <h3>Installing On Debian</h3>
@@ -372,7 +378,7 @@ curl -O http://phix-project.org/installers/debian-6.sh ; su -c 'bash debian-6.sh
         <h3>Installing On Fedora</h3>
         <p>Install <code>phix</code> on <a href="http://fedoraproject.org">Fedora</a> using our one-line installer:</p>
         <pre>
-curl -O http://www.phix-project.org/installers/fedora-15.sh | su -c 'bash fedora-15.sh'
+curl -O http://phix-project.org/installers/fedora-15.sh | su -c 'bash fedora-15.sh'
 </pre>
         <p><span class="label warning">Be aware</span> you need to <code>su</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
         <h3>Installing On Ubuntu</h3>
