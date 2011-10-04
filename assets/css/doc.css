@@ -95,6 +95,9 @@ div.topbar {
   text-align: left;
 }
 
+section {
+  font-family: proxima-nova,"helvetica neue",helvetica,arial,sans-serif;
+}
 
 div.quickstart {
   background-color: #f5f5f5;
