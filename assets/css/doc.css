@@ -99,6 +99,11 @@ section {
   font-family: proxima-nova,"helvetica neue",helvetica,arial,sans-serif;
 }
 
+section h2 {
+  line-height: 28px;
+  padding-bottom: 12px;
+}
+
 div.quickstart {
   background-color: #f5f5f5;
   background-repeat: repeat-x;
