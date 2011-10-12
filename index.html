@@ -362,13 +362,13 @@ Buildfile: /home/stuart/Devel/Phix/ConsoleDisplayLib/build.xml
         <p><span class="label notice">Hint</span> Apple OSX Lion users might find <a href="http://akrabat.com/php/setting-up-php-mysql-on-os-x-10-7-lion/">Rob Allen's instructions for setting up PHP on OSX 10.7 Lion</a> very useful.</p>
         <p>Install <code>phix</code> on <a href="http://www.apple.com/mac">Mac OS X</a> using our one-line installer:</p>
         <pre>
-curl http://phix-project.org/installers/osx-10.7.sh | sudo bash
+curl -O http://phix-project.org/installers/osx-10.7.sh ; sudo bash osx-10.7.sh
 </pre>
         <p><span class="label warning">Be aware</span> you need to <code>sudo</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
         <h3>Installing On CentOS, or RedHat Enterprise Linux</h3>
         <p>Install <code>phix</code> on <a href="http://www.centos.org">CentOS</a> or <a href="http://www.redhat.com">RedHat Enterprise Linux</a> using our one-line installer:</p>
         <pre>
-curl -O http://phix-project.org/installers/centos-6.sh | su -c 'bash centos-6.sh'
+curl -O http://phix-project.org/installers/centos-6.sh ; su -c 'bash centos-6.sh'
 </pre>
         <p><span class="label warning">Be aware</span> you need to <code>su</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
         <h3>Installing On Debian</h3>
@@ -380,13 +380,13 @@ curl -O http://phix-project.org/installers/debian-6.sh ; su -c 'bash debian-6.sh
         <h3>Installing On Fedora</h3>
         <p>Install <code>phix</code> on <a href="http://fedoraproject.org">Fedora</a> using our one-line installer:</p>
         <pre>
-curl -O http://phix-project.org/installers/fedora-15.sh | su -c 'bash fedora-15.sh'
+curl -O http://phix-project.org/installers/fedora-15.sh ; su -c 'bash fedora-15.sh'
 </pre>
         <p><span class="label warning">Be aware</span> you need to <code>su</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
         <h3>Installing On Ubuntu</h3>
         <p>Install <code>phix</code> on <a href="http://www.ubuntu.com">Ubuntu</a> using our one-line installer:</p>
         <pre>
-curl http://phix-project.org/installers/ubuntu-11.04.sh | sudo bash
+curl -O http://phix-project.org/installers/ubuntu-11.04.sh ; sudo bash ubuntu-11.04.sh
 </pre>
         <p><span class="label warning">Be aware</span> you need to <code>sudo</code> the <code>bash</code>, <strong>not</strong> the <code>curl</code>. Fetching stuff from the Internet doesn't require admin privileges, but installation does.</p>
         </div>
