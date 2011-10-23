@@ -56,9 +56,11 @@ intro "Upgrading PEAR installer to latest version"
 pear clear-cache
 pear upgrade pear/pear
 
-# step 2: install packages via PEAR-installer
+# step 2: upgrade packages via PEAR-installer
 #
-# everything else was simply to make this step possibe
+# during testing, I found numerous problems with the PEAR Installer
+# being unable to upgrade components. the only reliable way to upgrade
+# is to uninstall, and re-install
 intro "Using PEAR to upgrade phix/phix4componentdev from pear.phix-project.org"
 
 # first rule of PEAR-installer: clear the cache
@@ -72,8 +74,10 @@ if [[ $? == 1 ]] ; then
 fi
 
 # install or upgrade phix4componentdev
+pear uninstall phix/phix4componentdev
 pear uninstall phix/componentmanager
-pear -D auto_discover=1 upgrade -Ba phix/phix4componentdev || die "Unable to upgrade phix/phix4componentdev ... already on latest version?"
+pear uninstall phix/phix
+pear -D auto_discover=1 install -Ba phix/phix4componentdev || die "Unable to upgrade phix/phix4componentdev ... already on latest version?"
 
 # if we get here, job done
 intro "upgrade complete :)"
