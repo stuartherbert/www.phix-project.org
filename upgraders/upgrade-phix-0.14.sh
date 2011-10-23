@@ -76,7 +76,10 @@ fi
 # install or upgrade phix4componentdev
 pear uninstall phix/phix4componentdev
 pear uninstall phix/componentmanager
+pear uninstall phix/componentmanagerphplibrary
+pear uninstall phix/componentmanagershared
 pear uninstall phix/phix
+pear upgrade pirum/Pirum
 pear -D auto_discover=1 install -Ba phix/phix4componentdev || die "Unable to upgrade phix/phix4componentdev ... already on latest version?"
 
 # if we get here, job done
