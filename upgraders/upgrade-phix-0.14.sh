@@ -82,7 +82,7 @@ pear uninstall phix/phix
 pear upgrade pirum/Pirum
 pear upgrade phix/CommandLineLib
 pear upgrade phix/ValidationLib
-pear ugprade phix/TasksLib
+pear upgrade phix/TasksLib
 pear -D auto_discover=1 install -Ba phix/phix4componentdev || die "Unable to upgrade phix/phix4componentdev ... already on latest version?"
 
 # if we get here, job done
